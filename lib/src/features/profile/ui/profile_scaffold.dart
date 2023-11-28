@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kyla_home_budget/src/features/expenses/ui/day_graph.dart';
+import 'package:kyla_home_budget/src/features/expenses/ui/expenses_app_bar.dart';
 import 'package:kyla_home_budget/src/features/in_app_messages/ui/in_app_message_view.dart';
 import 'package:kyla_home_budget/src/features/profile/provider/user_provider.dart';
 import 'package:kyla_home_budget/src/features/profile/ui/profile_banner.dart';
@@ -49,9 +50,11 @@ class ProfileScaffold extends ConsumerWidget {
           top: 0,
           left: 0,
           right: 0,
-          child: ProfileBanner(user.value,
-              key: ValueKey(user.value?.cardNo ?? 'empty'),
-              height: profileHeight),
+          child: ExpensesAppBar(
+            child: ProfileBanner(user.value,
+                key: ValueKey(user.value?.cardNo ?? 'empty'),
+                height: profileHeight),
+          ),
         ),
       ],
     )));
