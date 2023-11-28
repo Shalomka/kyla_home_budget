@@ -16,7 +16,7 @@ class ProfileScaffold extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final user = ref.watch(userProvider);
-    const profileHeight = 80.0;
+    const profileHeight = 68.0;
     const infoAreaHeight = 100.0;
 
     return Scaffold(

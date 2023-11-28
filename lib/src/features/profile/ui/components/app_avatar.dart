@@ -13,14 +13,24 @@ class AppAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CircleAvatar(
-      radius: radius ?? 30,
-      backgroundImage: url != null ? NetworkImage(url!) : null,
+    return Container(
+      height: radius,
+      width: radius,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        image: url != null
+            ? DecorationImage(
+                image: NetworkImage(url!),
+                fit: BoxFit.cover,
+              )
+            : null,
+      ),
       child: url == null
-          ? const FaIcon(
-              FontAwesomeIcons.user,
-              size: 30,
-              color: Colors.white,
+          ? const Center(
+              child: FaIcon(
+                FontAwesomeIcons.user,
+                color: Colors.white,
+              ),
             )
           : null,
     );

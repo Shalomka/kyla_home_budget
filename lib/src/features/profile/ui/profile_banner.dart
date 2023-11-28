@@ -16,34 +16,42 @@ class ProfileBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: height,
+      width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(height / 2),
       ),
-      padding: const EdgeInsets.all(12),
       child: user == null
           ? const SizedBox.shrink()
-          : Row(
-              children: [
-                AppAvatar(
-                  url: user!.photoUrl,
-                  radius: height * 2 / 3,
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      user!.fullName,
-                      style: Theme.of(context).textTheme.titleMedium,
+          : Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Row(
+                children: [
+                  AppAvatar(
+                    url: user!.photoUrl,
+                    radius: height * 2 / 3,
+                  ),
+                  const SizedBox(
+                    width: 12,
+                  ),
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          user!.fullName,
+                          style: Theme.of(context).textTheme.titleMedium,
+                        ),
+                        const SizedBox(
+                          height: 4,
+                        ),
+                        MaskedCardNumber(user!.cardNo)
+                      ],
                     ),
-                    const SizedBox(
-                      height: 4,
-                    ),
-                    MaskedCardNumber(user!.cardNo)
-                  ],
-                )
-              ],
+                  )
+                ],
+              ),
             ),
     );
   }
