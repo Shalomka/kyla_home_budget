@@ -49,6 +49,12 @@ class _InAppMessageViewState extends State<InAppMessageView> {
 
   @override
   Widget build(BuildContext context) {
+    // if message is empty, don't show anything
+    if (widget.message.isEmpty) {
+      return const SizedBox.shrink();
+    }
+
+    // if message is not empty, show the message
     return Dismissible(
       key: ValueKey(widget.message),
       direction: DismissDirection.endToStart,
