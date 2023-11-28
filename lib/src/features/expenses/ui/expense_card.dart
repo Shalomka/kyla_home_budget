@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:kyla_home_budget/src/features/core/ui/menu_slider.dart';
 import 'package:kyla_home_budget/src/features/expenses/data/expense_model.dart';
 import 'package:kyla_home_budget/src/features/expenses/ui/components/expense_details.dart';
