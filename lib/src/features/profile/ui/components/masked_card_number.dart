@@ -12,7 +12,9 @@ class MaskedCardNumber extends StatelessWidget {
       children: [
         Text(
           maskedNumber,
-          style: Theme.of(context).textTheme.bodySmall,
+          style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                color: Theme.of(context).primaryColor,
+              ),
         ),
 
         // TODO: add mastercard logo

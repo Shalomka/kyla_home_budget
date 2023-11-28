@@ -41,7 +41,10 @@ class ProfileBanner extends StatelessWidget {
                       children: [
                         Text(
                           user!.fullName,
-                          style: Theme.of(context).textTheme.titleMedium,
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleMedium!
+                              .copyWith(color: Theme.of(context).primaryColor),
                         ),
                         const SizedBox(
                           height: 4,

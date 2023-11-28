@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kyla_home_budget/src/features/expenses/ui/day_graph.dart';
 import 'package:kyla_home_budget/src/features/expenses/ui/expenses_app_bar.dart';
+import 'package:kyla_home_budget/src/features/in_app_messages/providers/messages_provider.dart';
 import 'package:kyla_home_budget/src/features/in_app_messages/ui/in_app_message_view.dart';
 import 'package:kyla_home_budget/src/features/profile/provider/user_provider.dart';
 import 'package:kyla_home_budget/src/features/profile/ui/profile_banner.dart';
@@ -16,6 +17,8 @@ class ProfileScaffold extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final user = ref.watch(userProvider);
+    final messageLoader = ref.watch(messagesProvider);
+
     const profileHeight = 68.0;
     const infoAreaHeight = 100.0;
 
@@ -37,15 +40,16 @@ class ProfileScaffold extends ConsumerWidget {
             Expanded(child: body),
           ],
         ),
-        const SizedBox(
-          height: profileHeight + infoAreaHeight,
-          child: Center(
-            child: InAppMessageView(
-              message: 'Test',
-              height: profileHeight + infoAreaHeight,
+        if (messageLoader.value != null)
+          SizedBox(
+            height: profileHeight + infoAreaHeight,
+            child: Center(
+              child: InAppMessageView(
+                message: messageLoader.value!,
+                height: profileHeight + infoAreaHeight,
+              ),
             ),
           ),
-        ),
         Positioned(
           top: 0,
           left: 0,

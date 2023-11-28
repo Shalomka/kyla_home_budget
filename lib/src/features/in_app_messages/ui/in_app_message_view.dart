@@ -21,9 +21,9 @@ class InAppMessageView extends StatefulWidget {
 
 class _InAppMessageViewState extends State<InAppMessageView> {
   final appearDuration = const Duration(milliseconds: 300);
-  final allertFieldMaxHeight = 80.0;
-  final allertFieldMaxWidth = 300.0;
-  double allertFieldWidth = 80.0;
+  final allertFieldMaxHeight = 60.0;
+  final allertFieldMaxWidth = 250.0;
+  double allertFieldWidth = 60.0;
 
   bool isLoaded = false;
   bool isExpanded = false;
@@ -78,6 +78,8 @@ class _InAppMessageViewState extends State<InAppMessageView> {
         width: allertFieldMaxWidth,
         child: Center(
           child: AnimatedContainer(
+            padding:
+                const EdgeInsets.only(top: 0, bottom: 24, left: 0, right: 0),
             width: isExpanded ? allertFieldMaxWidth : allertFieldWidth,
             height: widget.height,
             duration: appearDuration,

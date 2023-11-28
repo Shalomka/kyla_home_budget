@@ -18,7 +18,7 @@ class PulsatingContainer extends StatefulWidget {
     this.color = const Color.fromARGB(255, 244, 92, 54),
     this.pulsatingColor = const Color.fromARGB(255, 244, 92, 54),
     this.backgroundColor = Colors.white,
-    this.duration = const Duration(milliseconds: 600),
+    this.duration = const Duration(milliseconds: 400),
     this.child,
   }) : super(key: key);
 
@@ -30,7 +30,7 @@ class PulsatingContainerState extends State<PulsatingContainer>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _animation;
-  late final double gapCoefficient = 0.2;
+  late final double gapCoefficient = 0.4;
   late final double maxGapWidth = widget.maxWidth * gapCoefficient;
   late final double maxGapHeight = widget.maxHeight * gapCoefficient;
 
@@ -57,7 +57,6 @@ class PulsatingContainerState extends State<PulsatingContainer>
 
   @override
   Widget build(BuildContext context) {
-    print('PulsatingContainerState.build wirh child ${widget.child?.key}');
     return SizedBox(
       height: widget.maxHeight,
       width: widget.maxWidth,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MessageCard extends StatelessWidget {
   final Widget? icon;
@@ -17,10 +18,9 @@ class MessageCard extends StatelessWidget {
       // icon
       Padding(
         padding: const EdgeInsets.only(left: 16.0),
-        child: Icon(
-          Icons.info_outline,
+        child: FaIcon(
+          FontAwesomeIcons.fire,
           color: color,
-          size: 32,
         ),
       ),
       // message

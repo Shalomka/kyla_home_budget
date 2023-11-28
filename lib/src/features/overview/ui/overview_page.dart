@@ -13,22 +13,27 @@ class OverviewPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final expenseLoader = ref.watch(expensesProvider);
+
     return ProfileScaffold(
       body: expenseLoader.when(
         data: (expenses) {
           //TODO: add an empty state
-          return ListView.separated(
-            padding: const EdgeInsets.only(top: 14),
-            separatorBuilder: (context, index) => const SizedBox(
-              height: 8,
+          return Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: ListView.separated(
+              padding: const EdgeInsets.only(top: 14),
+              separatorBuilder: (context, index) => const SizedBox(
+                height: 8,
+              ),
+              physics: const BouncingScrollPhysics(),
+              itemBuilder: (context, index) {
+                return DelayedDisplay(
+                    delay:
+                        Duration(milliseconds: index < 3 ? 100 * index : 300),
+                    child: ExpenseCard(expenses[index]));
+              },
+              itemCount: expenses.length,
             ),
-            physics: const BouncingScrollPhysics(),
-            itemBuilder: (context, index) {
-              return DelayedDisplay(
-                  delay: Duration(milliseconds: index < 3 ? 100 * index : 300),
-                  child: ExpenseCard(expenses[index]));
-            },
-            itemCount: expenses.length,
           );
         },
         loading: () => const LoaderView(),

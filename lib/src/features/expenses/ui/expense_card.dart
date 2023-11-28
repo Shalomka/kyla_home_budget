@@ -20,7 +20,9 @@ class _ExpenseCardState extends State<ExpenseCard> {
     return SizedBox(
       height: 90,
       child: MenuSlider(
-        menu: ExpenseMenu(active: isOpen),
+        menu: AnimatedSwitcher(
+            duration: const Duration(milliseconds: 300),
+            child: isOpen ? const ExpenseMenu() : const SizedBox()),
         onSlideChange: (MenuSliderValue value) {
           setState(() {
             isOpen = value == MenuSliderValue.open;
