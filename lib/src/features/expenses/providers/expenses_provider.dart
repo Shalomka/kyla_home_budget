@@ -20,5 +20,5 @@ class ExpensesNotifier extends AsyncNotifier<List<Expense>> {
   }
 }
 
-final expenseProvider = AsyncNotifierProvider<ExpensesNotifier, List<Expense>>(
+final expensesProvider = AsyncNotifierProvider<ExpensesNotifier, List<Expense>>(
     ExpensesNotifier.new);
