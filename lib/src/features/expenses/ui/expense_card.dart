@@ -19,18 +19,15 @@ class _ExpenseCardState extends State<ExpenseCard> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 100,
+      height: 90,
       child: MenuSlider(
-        child: Container(
-          padding: const EdgeInsets.all(8),
-          child: ExpenseDetails(widget.expense),
-        ),
         menu: ExpenseMenu(active: isOpen),
         onSlideChange: (MenuSliderValue value) {
           setState(() {
             isOpen = value == MenuSliderValue.open;
           });
         },
+        child: ExpenseDetails(widget.expense),
       ),
     );
   }
