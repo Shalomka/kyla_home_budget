@@ -45,7 +45,7 @@ void main() {
 
       const updatedTitle = 'Shopping';
       const updatedAmount = 100.0;
-      final updatedDate = DateTime.now().add(Duration(days: 1));
+      final updatedDate = DateTime.now().add(const Duration(days: 1));
       const updatedAddress = '456 Elm St';
       const updatedExpenseType = ExpenseType.shopping;
 
@@ -152,12 +152,13 @@ void main() {
     });
 
     test('should check equality of Expense instances', () {
+      final dateTime = DateTime.now();
       // Arrange
       final expense1 = Expense(
         id: '1',
         title: 'Groceries',
         amount: 50.0,
-        date: DateTime.now(),
+        date: dateTime,
         address: '123 Main St',
         expenseType: ExpenseType.food,
       );
@@ -166,7 +167,7 @@ void main() {
         id: '1',
         title: 'Groceries',
         amount: 50.0,
-        date: DateTime.now(),
+        date: dateTime,
         address: '123 Main St',
         expenseType: ExpenseType.food,
       );
@@ -175,7 +176,7 @@ void main() {
         id: '2',
         title: 'Shopping',
         amount: 100.0,
-        date: DateTime.now().add(Duration(days: 1)),
+        date: dateTime.add(const Duration(days: 1)),
         address: '456 Elm St',
         expenseType: ExpenseType.shopping,
       );

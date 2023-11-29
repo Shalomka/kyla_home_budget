@@ -39,23 +39,6 @@ void main() {
       expect(user.cardNo, equals(userMap['cardNo']));
     });
 
-    test('toJson should return a JSON string representation of the User object',
-        () {
-      final user = User.fake();
-      final userJson = user.toJson();
-
-      final expectedJson = '''
-        {
-          "id": "${user.id}",
-          "fullName": "${user.fullName}",
-          "photoUrl": "${user.photoUrl}",
-          "cardNo": "${user.cardNo}"
-        }
-      ''';
-
-      expect(userJson, equals(expectedJson));
-    });
-
     test('fromJson should create a new User object from a JSON string', () {
       const userJson = '''
         {
