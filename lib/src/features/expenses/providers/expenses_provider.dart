@@ -11,12 +11,22 @@ class ExpensesNotifier extends AsyncNotifier<List<Expense>> {
     return repo.getExpenses();
   }
 
+  addExpense(Expense expense) {
+    final list = state.value;
+    if (list == null) {
+      return;
+    }
+    list.add(expense);
+    state = AsyncData(list);
+  }
+
   removeExpense(Expense expense) {
     final list = state.value;
     if (list == null) {
       return;
     }
     list.remove(expense);
+    state = AsyncData(list);
   }
 }
 
