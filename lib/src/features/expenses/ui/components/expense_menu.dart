@@ -71,7 +71,7 @@ class _ExpenseMenuState extends State<ExpenseMenu> {
                                 onPressed: () {},
                                 icon: const FaIcon(FontAwesomeIcons.paperPlane),
                               )
-                            : SizedBox(width: 0),
+                            : const SizedBox(width: 0),
                       ),
                       // edit
                       AnimatedSwitcher(
@@ -85,7 +85,7 @@ class _ExpenseMenuState extends State<ExpenseMenu> {
                                 iconSize: iconSize,
                                 icon: const FaIcon(FontAwesomeIcons.edit),
                               )
-                            : SizedBox(width: 0),
+                            : const SizedBox(width: 0),
                       ),
                       // delete
                       AnimatedSwitcher(
@@ -99,7 +99,7 @@ class _ExpenseMenuState extends State<ExpenseMenu> {
                                   FontAwesomeIcons.trash,
                                 ),
                               )
-                            : SizedBox(width: 0),
+                            : const SizedBox(width: 0),
                       ),
                     ],
                   ),
